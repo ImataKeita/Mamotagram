@@ -2,14 +2,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # 1 対 多(1)
   has_many :posts, dependent: :destroy
-
-  has_many :posts, foreign_key: 'user_id'
-
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: { maximum: 50 }
-
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)
