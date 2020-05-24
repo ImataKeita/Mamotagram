@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :set_post, only: %i(show destroy)
   #新規投稿
   def new
     @post = Post.new
@@ -31,12 +32,25 @@ class PostsController < ApplicationController
   
   # 投稿詳細
   def show
-    @post = Post.find_by(id: params[:id])
+  end
+
+  # 投稿削除
+  def destroy
+    if @post.user == current_user
+      flash[:notice] = "投稿が削除されました" if @post.destroy
+    else
+      flash[:alert] = "投稿の削除に失敗しました"
+    end
+    redirect_to root_path
   end
 
   private
     def post_params
       params.require(:post).permit(:caption, photos_attributes: [:image]).merge(user_id: current_user.id)
+    end
+
+    def set_post
+      @post = Post.find_by(id: params[:id])
     end
     
 end
