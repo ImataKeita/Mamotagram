@@ -5,8 +5,8 @@
 
 
 ## 💬 Usage
-`$ git clone https://github.com/aocattleya/hoge.git` <br>
-`$ cd hoge` <br>
+`$ git clone https://github.com/ImataKeita/Mamotagram.git` <br>
+`$ cd Mamotagram` <br>
 `$ bundle install` <br>
 `$ rails db:create` <br>
 `$ rails db:migrate` <br>
