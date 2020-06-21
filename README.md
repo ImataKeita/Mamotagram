@@ -5,7 +5,7 @@
 
 
 ## 💬 Usage
-`$ git clone https://github.com/ImataKeita/Mamotagram.git` <br>
+`$ git clone https://github.com/Keita0428m/Mamotagram.git` <br>
 `$ cd Mamotagram` <br>
 `$ bundle install` <br>
 `$ rails db:create` <br>
